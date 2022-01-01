@@ -9,8 +9,9 @@ const AddTask = ({handleTaskAddition}) => {
         setInputData(e.target.value);
     }
 
-    const handleAddTaskClick = () => {
+    const handleAddTaskClick = (newTasks) => {
         handleTaskAddition(inputData)
+        setInputData('')
     }
 
     return ( 

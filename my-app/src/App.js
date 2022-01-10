@@ -7,6 +7,7 @@ import Header from "./Components/Header";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 
+
 const App = () => {
   const [tasks, setTasks] = useState([
       { 
@@ -43,14 +44,10 @@ const App = () => {
   }
   
   return (
-    <>
       <Router>
         <div className='container'>
           <Header/>
-          <Route 
-            path="/" 
-            exact 
-            render={() =>(
+          {/* <Route /> */}
               <>
                 <AddTask handleTaskAddition={handleTaskAddition} />
                 <Tasks 
@@ -58,13 +55,9 @@ const App = () => {
                   handleTaskClick={handleTaskClick} 
                   handleTaskDeletion={handleTaskDeletion}
                 />
-              </>
-            )}
-          />
+              </>        
         </div>
       </Router>
-    </>
-
   )
 }
 

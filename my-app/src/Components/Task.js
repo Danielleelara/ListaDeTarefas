@@ -14,7 +14,7 @@ const  Task = ({task, handleTaskClick, handleTaskDeletion}) => {
             <div className="buttons-container">
                  <button 
                     className="see-task-details-button" 
-                    onClick ={''}
+                    
                 >
                    <CgInfo />
                 </button>

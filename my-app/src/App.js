@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import './App.css';
+import {v4 as uuidv4} from 'uuid';
+
+import { BrowserRouter as Router, Route} from 'react-router-dom';
+import Header from "./Components/Header";
 import AddTask from "./Components/AddTask";
 import Tasks from "./Components/Tasks";
-import {v4 as uuidv4} from 'uuid';
-import Header from "./Components/Header";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import TasksDetails from "./Components/TaskDetails";
 
 
 
@@ -46,8 +48,11 @@ const App = () => {
   return (
       <Router>
         <div className='container'>
-          <Header/>
-          {/* <Route /> */}
+          <Header />
+          <Route 
+          path='/'
+            exact  
+            render={()=> ( 
               <>
                 <AddTask handleTaskAddition={handleTaskAddition} />
                 <Tasks 
@@ -56,9 +61,12 @@ const App = () => {
                   handleTaskDeletion={handleTaskDeletion}
                 />
               </>        
+            )}  
+            />
+            <Route path="/:taskTitle" exact component={TasksDetails}/>
         </div>
-      </Router>
-  )
-}
+        </Router>
+  );
+};
 
 export default App;
